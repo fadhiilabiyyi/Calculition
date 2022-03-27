@@ -1,0 +1,36 @@
+.calculator {
+    padding: 10px;
+    border-radius: 1em;
+    height: 300px;
+    width: 350px;
+    margin: auto;
+}
+
+.display-box {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #dcdbe1;
+    color: black;
+    border-radius: 5px;
+    width: 100%;
+    height: 65%;
+}
+
+.button {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #64278f;
+    color: white;
+    border-radius: 5px;
+    width: 100%;    
+    height: 70px;
+}
+
+.button.red {
+    background-color: #fb0066;
+}
+
+.button:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+}
