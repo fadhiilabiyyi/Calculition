@@ -39,10 +39,15 @@
 		<div class="table-responsive">
 			<table class="table table-borderless table-sm calculator">
 				<tr>
-					<td colspan="3"><input type="text" id="result" class="display-box" disabled></td>
-					<!-- Clear -->
-					<td><input type="button" class="button red" value="C" onclick="clearScreen()"></td>
+                    <div class="input-group input-group-lg">
+					    <td colspan="4">
+                            <input type="text" id="result" class="form-control display-box" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" disabled>
+                        </td>
+                    </div>
 				</tr>
+                <tr>
+					<td colspan="4"><input type="button" class="button red" value="C" onclick="clearScreen()"></td>
+                </tr>
 				<tr>
 					<!-- Display -->
 					<td><input type="button" class="button" value="1" onclick="display('1')"></td>
