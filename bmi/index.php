@@ -1,3 +1,32 @@
+<?php 
+
+if (isset($_POST['submit'])) {
+    $weight = $_POST['weight'];
+    $height = $_POST['height'];
+
+    $result = calculateBmi($weight, $height);
+
+    if ($result < 18.5) {
+        $message = "Berat Badan Kurang";
+    } elseif ($result > 18.5) {
+        $message = "Berat Badan Normal";
+    } elseif ($result >= 23) {
+        $message = "Kelebihan Berat Badan";
+    } elseif ($result >= 25) {
+        $message = "Obesitas 1";
+    } elseif ($result >= 30) {
+        $message = "Obesitas 2";
+    }
+}
+
+function calculateBmi($weight, $height) {
+    $height = $height / 100;
+
+    return $weight / ($height * $height);
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,26 +66,31 @@
 		</nav>
 
 		<div class="table-responsive">
-			<table class="table table-borderless table-sm calculator">
-				<tr>
-                    <td colspan="4">
-                        <input type="text" id="weight" class="form-control display-box" placeholder="Berat Badan (kg)" autocomplete="off">
-                    </td>
-				</tr>
-                <tr>
-                   <td colspan="4">
-                        <input type="text" id="height" class="form-control display-box" placeholder="Tinggi Badan (cm)" autocomplete="off">
-                    </td>
-				</tr>
-                <tr>
-                    <td colspan="4">
-                         <input type="text" id="result" class="form-control display-box" placeholder="" disabled>
-                     </td>
-                 </tr>
-                <tr>
-					<td colspan="4"><input type="button" class="button" value="Calculate" onclick="countBmi()"></td>
-                </tr>
-			</table>
+            <form action="" method="POST">
+                <table class="table table-borderless table-sm calculator">
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control display-box" placeholder="Body Mass Index" 
+                                value="<?php echo (isset($result)) ? 'BMI : ' . $result : '' ?>" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control display-box" placeholder="Keterangan" 
+                                value="<?php echo (isset($message)) ? $message : '' ?>" disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" name="weight" class="form-control display-box" placeholder="Berat Badan (kg)" autocomplete="off" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="number" name="height" class="form-control display-box" placeholder="Tinggi Badan (cm)" autocomplete="off" required></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="button" name="submit">Calculate</button></td>
+                    </tr>
+                </table>
+            </form>
 		</div>
 	</div>
 
